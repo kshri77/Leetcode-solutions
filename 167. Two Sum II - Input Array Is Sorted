@@ -1,0 +1,20 @@
+
+int* twoSum(int* numbers, int numbersSize, int target, int* returnSize) {
+    int i=0,j=numbersSize-1;
+    while(i<j)
+    {
+        if(numbers[i]+numbers[j]==target){
+            int* result = malloc(2 * sizeof(int));
+            returnSize[0]=i+1;
+            returnSize[1]=j+1;
+            *returnSize = 2;
+            return result;
+        }else if(numbers[i]+numbers[j]<target){
+            i++;
+        }
+        else{
+            j--;
+        }
+    }
+    return NULL;
+}
