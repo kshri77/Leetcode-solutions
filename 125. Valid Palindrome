@@ -1,0 +1,16 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        str=""
+        s=s.lower()
+        for i in s:
+            if not i.isalnum():
+                continue
+            str=str+i
+        i=0
+        j=-1
+        for k in range(len(str)//2):
+            if(str[i]!=str[j]):
+                return False
+            i+=1
+            j-=1
+        return True      
