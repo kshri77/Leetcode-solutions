@@ -1,0 +1,21 @@
+class Solution(object):
+    def countOnes(self,s):
+        count=0
+        for i in s:
+            if i=='1':
+                count+=1
+        print(count)
+        return count
+    def checkOnesSegment(self, s):
+        one=self.countOnes(s)
+        count,start,len=0,0,0
+        for i in s:
+            if len==0 and i=='1':
+                len+=1
+                count+=1
+                continue
+            if i=="1" and len-1==start:
+                count+=1
+                start=len
+            len+=1
+        return count==one
