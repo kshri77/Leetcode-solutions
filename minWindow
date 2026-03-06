@@ -1,0 +1,21 @@
+class Solution(object):
+    def minWindow(self, s, t):
+        if len(s) < len(t) or not s or not t:
+            return ""
+    
+        t_count = {}
+        for char in t:
+            t_count[char] = t_count.get(char, 0) + 1
+        
+        substr = ""
+        min_window = ""
+        
+        for right in range(len(s)):
+            substr += s[right]
+            while all(substr.count(char) >= t_count[char] for char in t_count):
+
+                if not min_window or len(substr) < len(min_window):
+                    min_window = substr
+                substr = substr[1:]
+        
+        return min_window
