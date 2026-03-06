@@ -1,0 +1,19 @@
+class Solution(object):
+    def circularGameLosers(self, n, k):
+        held=set()
+        next,i=1,1
+        held.add(next)
+        while True:
+            held.add(next)
+            next = (next + (k * i) - 1) % n + 1
+            i+=1
+            print(held)
+            if next in held:
+                break
+        arr = [i for i in range(1,n + 1) if i not in held]
+        
+
+        return arr
+
+        
+        
